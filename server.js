@@ -122,16 +122,18 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Test endpoint for debugging
-app.post('/api/test', (req, res) => {
-    console.log('Test endpoint hit:', req.body);
-    res.json({
-        success: true,
-        message: 'Test endpoint working',
-        receivedData: req.body,
-        timestamp: new Date().toISOString()
+// Test endpoint for debugging (remove in production)
+if (process.env.NODE_ENV === 'development') {
+    app.post('/api/test', (req, res) => {
+        console.log('Test endpoint hit:', req.body);
+        res.json({
+            success: true,
+            message: 'Test endpoint working',
+            receivedData: req.body,
+            timestamp: new Date().toISOString()
+        });
     });
-});
+}
 
 // 404 handler
 app.use('*', (req, res) => {

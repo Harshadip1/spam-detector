@@ -11,7 +11,10 @@
     "verify-setup": "node verify-setup.js",
     "lint": "echo \"Linting not configured\"",
     "build": "echo \"No build step required for Node.js\"",
-    "postinstall": "echo \"Installation complete. Run 'npm run verify-setup' to check configuration.\""
+    "postinstall": "echo \"Installation complete. Run 'npm run verify-setup' to check configuration.\"",
+    "setup": "npm install && node setup.js",
+    "heroku-postbuild": "echo \"No build step required\"",
+    "production": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "express": "^4.18.2",

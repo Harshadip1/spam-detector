@@ -69,17 +69,23 @@ SecureMessage-AI/
 - **MongoDB Atlas** account and cluster
 
 ### MongoDB Atlas Configuration
-1. **Connection String**:
-   ```
-   mongodb+srv://Maithili:nikhil123@securemessage.jv96mmu.mongodb.net/SecureMessageDB?appName=SecureMessage
+1. **Create MongoDB Atlas Account**: Sign up at [MongoDB Atlas](https://www.mongodb.com/atlas)
+2. **Create a Cluster**: Set up a free cluster in your preferred region
+3. **Create Database User**: Add a database user with read/write permissions
+4. **Get Connection String**: Copy your connection string from Atlas dashboard
+
+### Environment Setup
+1. **Copy Environment File**:
+   ```bash
+   cp .env.example .env
    ```
 
-2. **Environment Variables** (`.env`):
+2. **Update `.env` with your credentials**:
    ```env
-   # MongoDB Atlas Connection String
-   MONGODB_URI=mongodb+srv://Maithili:nikhil123@securemessage.jv96mmu.mongodb.net/SecureMessageDB?appName=SecureMessage
+   # MongoDB Atlas Connection String (replace with your actual credentials)
+   MONGODB_URI=mongodb+srv://YOUR_USERNAME:YOUR_PASSWORD@YOUR_CLUSTER.mongodb.net/YOUR_DATABASE
 
-   # JWT Secret Key
+   # JWT Secret Key (generate a secure random string)
    JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
 
    # Server Configuration
