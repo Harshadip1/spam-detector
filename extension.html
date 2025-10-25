@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Extension - SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" id="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link" id="profile-icon-link">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Profile Circle -->
+            <div class="nav-profile" id="nav-profile" style="display: none;">
+                <div class="profile-circle" id="profile-circle">
+                    <img id="nav-avatar-image" src="" alt="Profile" style="display: none;">
+                    <i class="fas fa-user" id="nav-avatar-icon"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar">
+                            <img id="dropdown-avatar-image" src="" alt="Profile" style="display: none;">
+                            <i class="fas fa-user" id="dropdown-avatar-icon"></i>
+                        </div>
+                        <div class="dropdown-info">
+                            <h4 id="dropdown-name">User Name</h4>
+                            <p id="dropdown-email">user@example.com</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="nav-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Extension Hero -->
+    <section class="extension-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="coming-soon-badge">
+                        <i class="fas fa-clock"></i>
+                        <span>Coming Soon</span>
+                    </div>
+                    <h1>SecureMessage AI Browser Extension</h1>
+                    <p>Protect your email directly in your browser with our upcoming Chrome extension. Get real-time spam detection for Gmail, Outlook, and other webmail services.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" id="notify-btn">
+                            <i class="fas fa-bell"></i>
+                            Notify Me When Available
+                        </button>
+                        <a href="#features" class="btn btn-outline">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-controls">
+                                <span class="control red"></span>
+                                <span class="control yellow"></span>
+                                <span class="control green"></span>
+                            </div>
+                            <div class="address-bar">
+                                <i class="fas fa-lock"></i>
+                                <span>gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="extension-preview">
+                                <div class="email-item">
+                                    <div class="email-header">
+                                        <span class="sender">bank@suspicious-email.com</span>
+                                        <div class="spam-indicator high-risk">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span>HIGH RISK</span>
+                                        </div>
+                                    </div>
+                                    <div class="email-subject">Urgent: Your account will be suspended</div>
+                                </div>
+                                <div class="email-item">
+                                    <div class="email-header">
+                                        <span class="sender">newsletter@company.com</span>
+                                        <div class="spam-indicator safe">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>SAFE</span>
+                                        </div>
+                                    </div>
+                                    <div class="email-subject">Weekly Newsletter - March 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extension Features -->
+    <section class="extension-features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Browser Protection</h2>
+                <p>Experience seamless spam detection without leaving your browser</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Real-Time Email Scanning</h3>
+                    <p>Automatically scan emails as you read them in Gmail, Outlook, Yahoo Mail, and other webmail services.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>Instant Risk Assessment</h3>
+                    <p>Get immediate visual indicators showing the safety level of each email with color-coded risk badges.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h3>One-Click Analysis</h3>
+                    <p>Right-click any email to get detailed spam analysis and threat breakdown in seconds.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Link Protection</h3>
+                    <p>Hover over links to see safety ratings and get warnings before clicking suspicious URLs.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Privacy Focused</h3>
+                    <p>All processing happens locally in your browser. Your emails never leave your device.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <h3>Lightweight & Fast</h3>
+                    <p>Minimal resource usage with no impact on browser performance or page loading speeds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Platforms -->
+    <section class="supported-platforms">
+        <div class="container">
+            <h2>Supported Email Platforms</h2>
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-logo">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Gmail</h3>
+                    <p>Full integration with Gmail interface including labels and filters</p>
+                    <div class="support-status available">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Supported</span>
+                    </div>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-logo">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3>Outlook.com</h3>
+                    <p>Seamless protection for Microsoft Outlook web interface</p>
+                    <div class="support-status available">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Supported</span>
+                    </div>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-logo">
+                        <i class="fab fa-yahoo"></i>
+                    </div>
+                    <h3>Yahoo Mail</h3>
+                    <p>Complete compatibility with Yahoo Mail's web interface</p>
+                    <div class="support-status available">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Supported</span>
+                    </div>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-logo">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>ProtonMail</h3>
+                    <p>Privacy-focused integration with encrypted email services</p>
+                    <div class="support-status coming-soon">
+                        <i class="fas fa-clock"></i>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Install Extension</h3>
+                        <p>Add SecureMessage AI to Chrome from the Web Store with one click</p>
+                    </div>
+                </div>
+                
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Open Your Email</h3>
+                        <p>Navigate to Gmail, Outlook, or any supported webmail service</p>
+                    </div>
+                </div>
+                
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Protected</h3>
+                        <p>See instant spam indicators and detailed analysis for every email</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Timeline -->
+    <section class="development-timeline">
+        <div class="container">
+            <h2>Development Roadmap</h2>
+            <div class="timeline">
+                <div class="timeline-item completed">
+                    <div class="timeline-marker">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Core Algorithm Development</h3>
+                        <p>Advanced AI spam detection engine completed and tested</p>
+                        <span class="timeline-date">Completed - Q4 2023</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item completed">
+                    <div class="timeline-marker">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Web Application Launch</h3>
+                        <p>Full-featured web app with spam detection and user accounts</p>
+                        <span class="timeline-date">Completed - Q1 2024</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item in-progress">
+                    <div class="timeline-marker">
+                        <i class="fas fa-cog fa-spin"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Browser Extension Development</h3>
+                        <p>Chrome extension with Gmail integration and real-time scanning</p>
+                        <span class="timeline-date">In Progress - Q2 2024</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Multi-Browser Support</h3>
+                        <p>Firefox, Safari, and Edge extension versions</p>
+                        <span class="timeline-date">Planned - Q3 2024</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Advanced Features</h3>
+                        <p>Custom rules, team management, and enterprise features</p>
+                        <span class="timeline-date">Planned - Q4 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification Signup -->
+    <section class="notification-signup">
+        <div class="container">
+            <div class="signup-card">
+                <div class="signup-content">
+                    <h2>Be the First to Know</h2>
+                    <p>Get notified when the SecureMessage AI browser extension becomes available. Join our early access program for exclusive features and beta testing opportunities.</p>
+                    
+                    <form class="notification-form" id="notification-form">
+                        <div class="form-group">
+                            <input type="email" id="notify-email" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-bell"></i>
+                                Notify Me
+                            </button>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="beta-access">
+                                <span class="checkmark"></span>
+                                I'm interested in beta testing
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="updates">
+                                <span class="checkmark"></span>
+                                Send me product updates
+                            </label>
+                        </div>
+                    </form>
+                    
+                    <div class="signup-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-star"></i>
+                            <span>Early access to new features</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-gift"></i>
+                            <span>Exclusive beta testing opportunities</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Priority support and feedback</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Protecting your digital communications with advanced AI technology and comprehensive security solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="index.html">Web App</a></li>
+                        <li><a href="download.html">Mobile Apps</a></li>
+                        <li><a href="extension.html">Browser Extension</a></li>
+                        <li><a href="premium.html">Premium Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="learn.html">Security Education</a></li>
+                        <li><a href="fake-emails.html">Phishing Examples</a></li>
+                        <li><a href="dashboard.html">Security Dashboard</a></li>
+                        <li><a href="profile.html">Account Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p>Email: support@securemessage.ai</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav-profile.js"></script>
+    <script src="js/extension.js"></script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Cyber Security Education | SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/learn.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Profile Icon Styles */
+        .profile-icon-link {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem !important;
+        }
+        
+        .profile-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .profile-icon-link:hover .profile-circle {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .profile-circle i {
+            font-size: 1rem;
+        }
+        /* Learn Page Specific Styles */
+        .learn-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .learn-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .article-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .article-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .read-more-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .read-more-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        
+        .category-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .quiz-section {
+            background: var(--secondary-bg);
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+        
+        .quiz-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-icon {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .tips-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--secondary-bg);
+            border-radius: 10px;
+        }
+        
+        .tip-icon {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+        
+        .article-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+        
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .learn-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-filter {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.html" class="nav-link active">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <li class="nav-item login-btn">
+                    <a href="login.html" class="nav-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-profile" style="display: none;">
+                    <a href="profile.html" class="nav-link profile-icon-link">
+                        <div class="profile-circle">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="learn-hero">
+        <div class="container">
+            <h1>Cybersecurity Education Hub</h1>
+            <p>Master the art of digital security with our comprehensive learning resources</p>
+            
+            <div class="learn-stats">
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div>Expert Articles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div>Interactive Quiz</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div>Security Tips</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div>Free Content</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container" style="padding: 3rem 0;">
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-category="all">All Topics</button>
+            <button class="filter-btn" data-category="phishing">Phishing</button>
+            <button class="filter-btn" data-category="passwords">Passwords</button>
+            <button class="filter-btn" data-category="malware">Malware</button>
+            <button class="filter-btn" data-category="privacy">Privacy</button>
+            <button class="filter-btn" data-category="social">Social Engineering</button>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="article-grid" id="articlesGrid">
+            <!-- Articles will be populated by JavaScript -->
+        </div>
+
+        <!-- Interactive Quiz Section -->
+        <section class="quiz-section">
+            <div class="container">
+                <div class="quiz-card">
+                    <div class="quiz-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h2>Test Your Cybersecurity Knowledge</h2>
+                    <p>Take our comprehensive quiz to assess your understanding of digital security concepts and identify areas for improvement.</p>
+                    <button class="btn btn-primary" onclick="startQuiz()" style="margin-top: 1rem;">
+                        <i class="fas fa-play"></i> Start Quiz
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Security Tips -->
+        <section class="tips-section">
+            <h2><i class="fas fa-lightbulb"></i> Daily Security Tips</h2>
+            <p>Essential cybersecurity practices to keep you safe online:</p>
+            
+            <div class="tip-item">
+                <div class="tip-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <div>
+                    <h4>Use Strong, Unique Passwords</h4>
+                    <p>Create complex passwords with at least 12 characters, including uppercase, lowercase, numbers, and symbols. Use a different password for each account.</p>
+                </div>
+            </div>
+            
+            <div class="tip-item">
+                <div class="tip-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <h4>Enable Two-Factor Authentication</h4>
+                    <p>Add an extra layer of security to your accounts by enabling 2FA wherever possible. Use authenticator apps rather than SMS when available.</p>
+                </div>
+            </div>
+            
+            <div class="tip-item">
+                <div class="tip-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div>
+                    <h4>Keep Software Updated</h4>
+                    <p>Regularly update your operating system, browsers, and applications to patch security vulnerabilities and protect against threats.</p>
+                </div>
+            </div>
+            
+            <div class="tip-item">
+                <div class="tip-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div>
+                    <h4>Be Cautious with Links and Attachments</h4>
+                    <p>Verify the sender before clicking links or downloading attachments. Hover over links to see their destination before clicking.</p>
+                </div>
+            </div>
+            
+            <div class="tip-item">
+                <div class="tip-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div>
+                    <h4>Secure Your Wi-Fi Network</h4>
+                    <p>Use WPA3 encryption, change default router passwords, and avoid public Wi-Fi for sensitive activities. Consider using a VPN.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="article-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeArticle()">&times;</button>
+            <div id="modalBody">
+                <!-- Article content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Advanced AI-powered cybersecurity platform protecting your digital communications from spam, phishing, and malicious content.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Platform</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="premium.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="fake-emails.html">Fake Email Examples</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="report-scam.html">Report Scam</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/spam-detector.js"></script>
+    <script src="js/ai-classifier.js"></script>
+    <script src="js/advanced-detector.js"></script>
+    <script src="js/nav-profile.js"></script>
+    <script src="js/learn.js"></script>
+</body>
+</html>

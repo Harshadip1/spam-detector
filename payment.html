@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/payment-v2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-wrapper">
+            <a href="premium.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Plans
+            </a>
+
+            <div class="payment-grid">
+                <!-- Payment Form -->
+                <div class="payment-form">
+                    <h2 class="section-title">Complete Your Purchase</h2>
+                    <p class="section-subtitle">Secure payment processing with multiple options</p>
+
+                    <!-- Plan Summary -->
+                    <div class="plan-summary">
+                        <div class="summary-header">
+                            <div class="plan-details">
+                                <h3 class="plan-name" id="selected-plan-name">Pro Plan</h3>
+                                <p class="plan-description">Advanced protection for growing businesses</p>
+                            </div>
+                            <div class="plan-pricing">
+                                <span class="price" id="plan-price">₹2,399</span>
+                                <span class="period" id="plan-period">/month</span>
+                            </div>
+                        </div>
+
+                        <div class="billing-options">
+                            <div class="billing-toggle">
+                                <input type="radio" id="billing-monthly" name="billing" value="monthly" checked>
+                                <label for="billing-monthly">Monthly</label>
+                            </div>
+                            <div class="billing-toggle">
+                                <input type="radio" id="billing-yearly" name="billing" value="yearly">
+                                <label for="billing-yearly">
+                                    Yearly <span class="discount">(Save 20%)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="total-display">
+                            <div class="breakdown-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">₹2,399</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>GST (18%)</span>
+                                <span id="tax">₹432</span>
+                            </div>
+                            <div class="breakdown-row total">
+                                <span>Total</span>
+                                <span id="total">₹2,831</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <h3 class="section-title" style="font-size: 1.5rem; margin-top: 2rem;">Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method active" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Credit/Debit Card</span>
+                        </div>
+                        <div class="payment-method" data-method="upi">
+                            <i class="fas fa-qrcode"></i>
+                            <span>UPI Payment</span>
+                        </div>
+                        <div class="payment-method" data-method="netbanking">
+                            <i class="fas fa-university"></i>
+                            <span>Net Banking</span>
+                        </div>
+                    </div>
+
+                    <!-- Payment Sections -->
+                    <form id="payment-form">
+                        <!-- Card Payment Section -->
+                        <div class="payment-section active" id="card-section">
+                            <h4>Card Details</h4>
+                            <div class="form-group">
+                                <label for="cardholder">Cardholder Name</label>
+                                <input type="text" id="cardholder" class="form-input" placeholder="Full name as on card" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry">Expiry Date</label>
+                                    <input type="text" id="expiry" class="form-input" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" class="form-input" placeholder="123" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UPI Payment Section -->
+                        <div class="payment-section" id="upi-section">
+                            <div class="upi-container">
+                                <div class="qr-section">
+                                    <div class="qr-code-wrapper">
+                                        <canvas id="qr-canvas" width="200" height="200"></canvas>
+                                    </div>
+                                    <div class="qr-info">
+                                        <h4>Scan to Pay</h4>
+                                        <p>Use any UPI app to scan this QR code and complete your payment</p>
+                                        <div class="upi-apps">
+                                            <span class="upi-app"><i class="fab fa-google"></i> Google Pay</span>
+                                            <span class="upi-app"><i class="fas fa-phone-alt"></i> PhonePe</span>
+                                            <span class="upi-app"><i class="fas fa-piggy-bank"></i> Paytm</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="upi-manual">
+                                    <h4>Or Pay Manually</h4>
+                                    <p>Send payment to our UPI ID:</p>
+                                    <div class="upi-id-display">
+                                        <span class="upi-id">securemessage@upi</span>
+                                        <button class="copy-upi-btn" id="copy-upi-button">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Net Banking Section -->
+                        <div class="payment-section" id="netbanking-section">
+                            <h4>Select Your Bank</h4>
+                            <div class="bank-grid">
+                                <div class="bank-option" data-bank="sbi">
+                                    <div class="bank-logo">SBI</div>
+                                    <span>State Bank of India</span>
+                                </div>
+                                <div class="bank-option" data-bank="hdfc">
+                                    <div class="bank-logo">HDFC</div>
+                                    <span>HDFC Bank</span>
+                                </div>
+                                <div class="bank-option" data-bank="icici">
+                                    <div class="bank-logo">ICICI</div>
+                                    <span>ICICI Bank</span>
+                                </div>
+                                <div class="bank-option" data-bank="axis">
+                                    <div class="bank-logo">AXIS</div>
+                                    <span>Axis Bank</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Info -->
+                        <div class="security-info">
+                            <i class="fas fa-lock"></i>
+                            <span>Your payment information is encrypted and secure</span>
+                        </div>
+
+                        <!-- Total Section -->
+                        <div class="total-section">
+                            <div class="total-row">
+                                <span>Plan Total</span>
+                                <span id="final-total">₹2,831</span>
+                            </div>
+                            <div class="total-row final">
+                                <span>You Pay</span>
+                                <span id="you-pay">₹2,831</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="pay-button">
+                            <i class="fas fa-lock"></i> Pay with Card
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Completion Message (Hidden by default) -->
+                <div class="payment-completion" id="completion-message" style="display: none;">
+                    <div class="completion-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Payment Successful!</h3>
+                    <p class="completion-message">
+                        <i class="fas fa-check"></i> Your payment has been processed successfully
+                    </p>
+                    <p>Redirecting to your dashboard...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/payment.js"></script>
+
+    <script>
+        // Enhanced Payment Page Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - Initializing payment page');
+            initializePaymentPage();
+        });
+
+        function initializePaymentPage() {
+            console.log('Initializing payment page...');
+            
+            // Set up all event listeners
+            setupEventListeners();
+            
+            // Initialize default payment method
+            setTimeout(() => {
+                switchPaymentMethod('card');
+                generateQRCode();
+                addProgressIndicator();
+                addSecurityFeatures();
+                addAnimationTriggers();
+            }, 300);
+            
+            console.log('Payment page initialization complete');
+            
+            // Test all buttons after initialization
+            setTimeout(() => {
+                testButtonFunctionality();
+            }, 1000);
+        }
+
+        function setupEventListeners() {
+            console.log('Setting up event listeners...');
+            
+            // Payment method buttons
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            console.log('Found payment methods:', paymentMethods.length);
+            
+            paymentMethods.forEach((method, index) => {
+                method.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Payment method clicked:', this.dataset.method);
+                    
+                    // Remove active from all methods
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    // Add active to clicked method
+                    this.classList.add('active');
+                    
+                    // Switch to selected method
+                    switchPaymentMethod(this.dataset.method);
+                });
+            });
+
+            // Billing cycle radios
+            const billingRadios = document.querySelectorAll('input[name="billing"]');
+            console.log('Found billing radios:', billingRadios.length);
+            
+            billingRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    console.log('Billing cycle changed to:', this.value);
+                    updatePlanPricing(this.value);
+                });
+            });
+
+            // Bank options
+            const bankOptions = document.querySelectorAll('.bank-option');
+            console.log('Found bank options:', bankOptions.length);
+            
+            bankOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    console.log('Bank selected:', this.dataset.bank);
+                    bankOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+
+            // Copy UPI button
+            const copyBtn = document.getElementById('copy-upi-button');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Copy UPI button clicked');
+                    copyUPIId();
+                });
+            }
+
+            // Pay button
+            const payButton = document.querySelector('.pay-button');
+            if (payButton) {
+                payButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Pay button clicked');
+                    handlePayment();
+                });
+            }
+
+            // Back link
+            const backLink = document.querySelector('.back-link');
+            if (backLink) {
+                backLink.addEventListener('click', function(e) {
+                    console.log('Back link clicked');
+                    // Let the default navigation happen
+                });
+            }
+        }
+
+        function handlePayment() {
+            const activeMethod = document.querySelector('.payment-method.active');
+            if (activeMethod) {
+                const method = activeMethod.dataset.method;
+                console.log('Processing payment with method:', method);
+                
+                // Show loading state
+                const payButton = document.querySelector('.pay-button');
+                const originalText = payButton.innerHTML;
+                payButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                payButton.disabled = true;
+                
+                // Simulate payment processing
+                setTimeout(() => {
+                    // Redirect to success page
+                    window.location.href = 'payment-success.html';
+                }, 2000);
+            } else {
+                alert('Please select a payment method');
+            }
+        }
+
+        function switchPaymentMethod(method) {
+            const sections = document.querySelectorAll('.payment-section');
+            
+            // Hide all sections first
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show the selected payment method section
+            if (method === 'upi') {
+                const upiSection = document.getElementById('upi-section');
+                if (upiSection) {
+                    upiSection.classList.add('active');
+                    generateQRCode();
+                }
+            } else if (method === 'netbanking') {
+                const netbankingSection = document.getElementById('netbanking-section');
+                if (netbankingSection) {
+                    netbankingSection.classList.add('active');
+                }
+            } else if (method === 'card') {
+                const cardSection = document.getElementById('card-section');
+                if (cardSection) {
+                    cardSection.classList.add('active');
+                }
+            }
+            
+            // Update pay button text based on method
+            updatePayButtonText(method);
+        }
+
+        function updatePayButtonText(method) {
+            const payButton = document.querySelector('.pay-button');
+            const methodTexts = {
+                upi: 'Complete UPI Payment',
+                netbanking: 'Proceed to Net Banking',
+                card: 'Pay with Card'
+            };
+            
+            if (payButton && methodTexts[method]) {
+                payButton.innerHTML = `<i class="fas fa-lock"></i> ${methodTexts[method]}`;
+            }
+        }
+
+        function generateQRCode() {
+            const canvas = document.getElementById('qr-canvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const size = 200;
+            const modules = 25;
+            const moduleSize = size / modules;
+            
+            // Clear canvas
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, size, size);
+            
+            // Generate QR pattern
+            ctx.fillStyle = '#000000';
+            
+            // Create pattern based on UPI payment string
+            const total = document.getElementById('total').textContent;
+            const amount = total.replace('₹', '').replace(',', '');
+            const upiString = `upi://pay?pa=securemessage@upi&pn=SecureMessage%20AI&am=${amount}&cu=INR&tn=Premium%20Subscription`;
+            
+            for (let i = 0; i < modules; i++) {
+                for (let j = 0; j < modules; j++) {
+                    const hash = (upiString.charCodeAt((i + j) % upiString.length) + i + j) % 3;
+                    if (hash === 0) {
+                        ctx.fillRect(i * moduleSize, j * moduleSize, moduleSize, moduleSize);
+                    }
+                }
+            }
+            
+            // Add finder patterns
+            drawFinderPattern(ctx, 0, 0, moduleSize);
+            drawFinderPattern(ctx, (modules - 7) * moduleSize, 0, moduleSize);
+            drawFinderPattern(ctx, 0, (modules - 7) * moduleSize, moduleSize);
+        }
+
+        function drawFinderPattern(ctx, x, y, moduleSize) {
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(x, y, 7 * moduleSize, 7 * moduleSize);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(x + moduleSize, y + moduleSize, 5 * moduleSize, 5 * moduleSize);
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(x + 2 * moduleSize, y + 2 * moduleSize, 3 * moduleSize, 3 * moduleSize);
+        }
+
+        function copyUPIId() {
+            console.log('Copy UPI ID function called');
+            const upiId = 'securemessage@upi';
+            
+            // Try modern clipboard API first
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(upiId).then(() => {
+                    showCopySuccess();
+                }).catch(() => {
+                    // Fallback to older method
+                    fallbackCopy(upiId);
+                });
+            } else {
+                fallbackCopy(upiId);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showCopySuccess();
+        }
+
+        function showCopySuccess() {
+            const copyBtn = document.querySelector('.copy-upi-btn');
+            if (copyBtn) {
+                const originalHTML = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                copyBtn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalHTML;
+                    copyBtn.style.background = 'var(--primary-gradient)';
+                }, 2000);
+            }
+            
+            // Show alert as fallback
+            alert('UPI ID copied to clipboard: securemessage@upi');
+        }
+
+        function updatePlanPricing(cycle) {
+            const prices = {
+                monthly: { price: 2399, yearly: 23990 },
+                yearly: { price: 23990, monthly: 2399 }
+            };
+
+            const currentPrice = cycle === 'yearly' ? 23990 : 2399;
+            const gst = Math.round(currentPrice * 0.18);
+            const total = currentPrice + gst;
+
+            // Update plan pricing display
+            const priceEl = document.querySelector('.plan-pricing .price');
+            const periodEl = document.querySelector('.plan-pricing .period');
+            
+            if (priceEl) priceEl.textContent = `₹${currentPrice.toLocaleString('en-IN')}`;
+            if (periodEl) periodEl.textContent = cycle === 'yearly' ? '/year' : '/month';
+
+            // Update breakdown
+            const subtotalEl = document.getElementById('subtotal');
+            const taxEl = document.getElementById('tax');
+            const totalEl = document.getElementById('total');
+
+            if (subtotalEl) subtotalEl.textContent = `₹${currentPrice.toLocaleString('en-IN')}`;
+            if (taxEl) taxEl.textContent = `₹${gst.toLocaleString('en-IN')}`;
+            if (totalEl) totalEl.textContent = `₹${total.toLocaleString('en-IN')}`;
+        }
+
+        function validateField(field) {
+            const fieldType = field.type || field.id;
+            let isValid = true;
+            
+            switch(fieldType) {
+                case 'email':
+                    isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+                    break;
+                case 'card-number':
+                    isValid = field.value.replace(/\s/g, '').length >= 13;
+                    break;
+                case 'expiry':
+                    isValid = /^(0[1-9]|1[0-2])\/\d{2}$/.test(field.value);
+                    break;
+                case 'cvv':
+                    isValid = /^\d{3,4}$/.test(field.value);
+                    break;
+                default:
+                    isValid = field.value.length > 0;
+            }
+            
+            field.classList.toggle('valid', isValid && field.value.length > 0);
+            field.classList.toggle('invalid', !isValid && field.value.length > 0);
+        }
+
+        function addProgressIndicator() {
+            const form = document.getElementById('payment-form');
+            if (!form) return;
+
+            const progressBar = document.createElement('div');
+            progressBar.className = 'form-progress';
+            progressBar.innerHTML = `
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-text">Complete your payment details</div>
+            `;
+            
+            form.insertBefore(progressBar, form.firstChild);
+
+            // Update progress based on filled fields
+            const inputs = form.querySelectorAll('.form-input[required]');
+            inputs.forEach(input => {
+                input.addEventListener('input', updateProgress);
+            });
+
+            function updateProgress() {
+                const totalFields = inputs.length;
+                const filledFields = Array.from(inputs).filter(input => input.value.trim()).length;
+                const progress = (filledFields / totalFields) * 100;
+                
+                const progressFill = document.querySelector('.progress-fill');
+                const progressText = document.querySelector('.progress-text');
+                
+                if (progressFill) {
+                    progressFill.style.width = progress + '%';
+                }
+                
+                if (progressText) {
+                    if (progress === 0) {
+                        progressText.textContent = 'Complete your payment details';
+                    } else if (progress < 50) {
+                        progressText.textContent = 'Keep going...';
+                    } else if (progress < 100) {
+                        progressText.textContent = 'Almost there!';
+                    } else {
+                        progressText.textContent = 'Ready to process payment!';
+                    }
+                }
+            }
+        }
+
+        function addSecurityFeatures() {
+            // Add security badges
+            const securityInfo = document.querySelector('.security-info');
+            if (securityInfo) {
+                securityInfo.innerHTML = `
+                    <div class="security-badges">
+                        <div class="security-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SSL Encrypted</span>
+                        </div>
+                        <div class="security-badge">
+                            <i class="fas fa-lock"></i>
+                            <span>PCI Compliant</span>
+                        </div>
+                        <div class="security-badge">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Verified Secure</span>
+                        </div>
+                    </div>
+                    <p>Your payment information is encrypted and secure</p>
+                `;
+            }
+        }
+
+        function addAnimationTriggers() {
+            // Add intersection observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.payment-method, .form-group, .total-section').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Add CSS for enhanced features
+        const enhancedStyles = document.createElement('style');
+        enhancedStyles.textContent = `
+            .form-progress {
+                margin-bottom: 2rem;
+                padding: 1rem;
+                background: #f8f9fa;
+                border-radius: 12px;
+                animation: fadeInUp 0.6s ease-out;
+            }
+
+            .progress-bar {
+                height: 8px;
+                background: #e1e5e9;
+                border-radius: 4px;
+                overflow: hidden;
+                margin-bottom: 0.5rem;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #667eea, #764ba2);
+                border-radius: 4px;
+                transition: width 0.3s ease;
+            }
+
+            .progress-text {
+                font-size: 0.9rem;
+                color: #666;
+                text-align: center;
+            }
+
+            .form-input.valid {
+                border-color: #28a745;
+                background: #f8fff9;
+            }
+
+            .form-input.invalid {
+                border-color: #dc3545;
+                background: #fff8f8;
+            }
+
+            .security-badges {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .security-badge {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem 1rem;
+                background: white;
+                border-radius: 20px;
+                border: 1px solid #e1e5e9;
+                font-size: 0.85rem;
+                color: #28a745;
+            }
+
+            .security-badge i {
+                font-size: 1rem;
+            }
+
+            .animate-in {
+                animation: slideInUp 0.6s ease-out;
+            }
+
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .security-badges {
+                    justify-content: center;
+                }
+                
+                .security-badge {
+                    font-size: 0.8rem;
+                    padding: 0.4rem 0.8rem;
+                }
+
+                .summary-header {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 1rem;
+                }
+
+                .plan-pricing .price {
+                    font-size: 1.5rem;
+                }
+
+                .billing-options {
+                    flex-direction: column;
+                }
+
+                .billing-toggle label {
+                    padding: 0.75rem;
+                    font-size: 0.9rem;
+                }
+
+                .qr-section {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 1rem;
+                }
+
+                .upi-apps {
+                    justify-content: center;
+                }
+
+                .bank-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .bank-option {
+                    padding: 0.75rem;
+                }
+
+                .bank-logo {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            
+            .payment-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            
+            @media (max-width: 768px) {
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+        `;
+        document.head.appendChild(enhancedStyles);
+
+        function testButtonFunctionality() {
+            console.log('=== TESTING BUTTON FUNCTIONALITY ===');
+            
+            // Test payment methods
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            console.log('Payment method buttons found:', paymentMethods.length);
+            paymentMethods.forEach((btn, i) => {
+                console.log(`Payment method ${i + 1}: ${btn.dataset.method} - Clickable: ${btn.style.pointerEvents !== 'none'}`);
+            });
+            
+            // Test back link
+            const backLink = document.querySelector('.back-link');
+            console.log('Back link found:', !!backLink, 'Href:', backLink?.href);
+            
+            // Test pay button
+            const payButton = document.querySelector('.pay-button');
+            console.log('Pay button found:', !!payButton, 'Disabled:', payButton?.disabled);
+            
+            // Test copy button
+            const copyBtn = document.getElementById('copy-upi-button');
+            console.log('Copy UPI button found:', !!copyBtn);
+            
+            // Test billing radios
+            const billingRadios = document.querySelectorAll('input[name="billing"]');
+            console.log('Billing radio buttons found:', billingRadios.length);
+            
+            console.log('=== END TEST ===');
+        }
+    </script>
+</body>
+</html>

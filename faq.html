@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Frequently Asked Questions | SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" id="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link" id="profile-icon-link">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Profile Circle -->
+            <div class="nav-profile" id="nav-profile" style="display: none;">
+                <div class="profile-circle" id="profile-circle">
+                    <img id="nav-avatar-image" src="" alt="Profile" style="display: none;">
+                    <i class="fas fa-user" id="nav-avatar-icon"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar">
+                            <img id="dropdown-avatar-image" src="" alt="Profile" style="display: none;">
+                            <i class="fas fa-user" id="dropdown-avatar-icon"></i>
+                        </div>
+                        <div class="dropdown-info">
+                            <h4 id="dropdown-name">User Name</h4>
+                            <p id="dropdown-email">user@example.com</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="nav-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about spam detection, phishing protection, and cybersecurity best practices.</p>
+                
+                <!-- Search FAQ -->
+                <div class="faq-search">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="faq-search" placeholder="Search for answers...">
+                        <button id="clear-search" style="display: none;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="quick-links">
+                    <span>Popular topics:</span>
+                    <button class="quick-link" data-category="spam">Spam Detection</button>
+                    <button class="quick-link" data-category="phishing">Phishing</button>
+                    <button class="quick-link" data-category="account">Account</button>
+                    <button class="quick-link" data-category="security">Security</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="faq-categories">
+        <div class="container">
+            <div class="categories-grid">
+                <div class="category-card" data-category="spam">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Spam Detection</h3>
+                    <p>How our AI detects and blocks spam messages</p>
+                    <span class="question-count">8 questions</span>
+                </div>
+                
+                <div class="category-card" data-category="phishing">
+                    <div class="category-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3>Phishing Protection</h3>
+                    <p>Understanding and preventing phishing attacks</p>
+                    <span class="question-count">6 questions</span>
+                </div>
+                
+                <div class="category-card" data-category="account">
+                    <div class="category-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Account & Billing</h3>
+                    <p>Managing your account and subscription</p>
+                    <span class="question-count">5 questions</span>
+                </div>
+                
+                <div class="category-card" data-category="security">
+                    <div class="category-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Security & Privacy</h3>
+                    <p>Data protection and privacy policies</p>
+                    <span class="question-count">7 questions</span>
+                </div>
+                
+                <div class="category-card" data-category="technical">
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Technical Support</h3>
+                    <p>Troubleshooting and technical issues</p>
+                    <span class="question-count">4 questions</span>
+                </div>
+                
+                <div class="category-card" data-category="mobile">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Apps</h3>
+                    <p>Using SecureMessage AI on mobile devices</p>
+                    <span class="question-count">3 questions</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            <div class="faq-container">
+                <div class="faq-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Categories</h3>
+                        <button id="show-all-faqs" class="btn btn-outline btn-sm">Show All</button>
+                    </div>
+                    <ul class="category-list">
+                        <li><a href="#" data-category="all" class="active">All Questions</a></li>
+                        <li><a href="#" data-category="spam">Spam Detection</a></li>
+                        <li><a href="#" data-category="phishing">Phishing Protection</a></li>
+                        <li><a href="#" data-category="account">Account & Billing</a></li>
+                        <li><a href="#" data-category="security">Security & Privacy</a></li>
+                        <li><a href="#" data-category="technical">Technical Support</a></li>
+                        <li><a href="#" data-category="mobile">Mobile Apps</a></li>
+                    </ul>
+                    
+                    <div class="help-widget">
+                        <h4>Still need help?</h4>
+                        <p>Can't find what you're looking for?</p>
+                        <button class="btn btn-primary btn-sm" onclick="toggleChat()">
+                            <i class="fas fa-comments"></i>
+                            Live Chat
+                        </button>
+                        <a href="report-scam.html" class="btn btn-outline btn-sm">
+                            <i class="fas fa-flag"></i>
+                            Report Scam
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="faq-main">
+                    <div class="faq-header">
+                        <h2 id="current-category">All Questions</h2>
+                        <div class="faq-stats">
+                            <span id="showing-count">33</span> questions found
+                        </div>
+                    </div>
+                    
+                    <div class="faq-list" id="faq-list">
+                        <!-- FAQ items will be loaded here -->
+                    </div>
+                    
+                    <div class="no-results" id="no-results" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <h3>No results found</h3>
+                        <p>Try adjusting your search terms or browse by category.</p>
+                        <button class="btn btn-outline" onclick="clearSearch()">Clear Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="contact-support">
+        <div class="container">
+            <div class="support-card">
+                <div class="support-content">
+                    <h2>Didn't find what you were looking for?</h2>
+                    <p>Our support team is here to help you with any questions or issues you might have.</p>
+                    
+                    <div class="support-options">
+                        <div class="support-option">
+                            <div class="option-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="option-content">
+                                <h3>Live Chat</h3>
+                                <p>Get instant help from our AI assistant or connect with a human agent.</p>
+                                <button class="btn btn-primary" onclick="toggleChat()">Start Chat</button>
+                            </div>
+                        </div>
+                        
+                        <div class="support-option">
+                            <div class="option-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="option-content">
+                                <h3>Email Support</h3>
+                                <p>Send us a detailed message and we'll get back to you within 24 hours.</p>
+                                <a href="mailto:support@securemessage.ai" class="btn btn-outline">Send Email</a>
+                            </div>
+                        </div>
+                        
+                        <div class="support-option">
+                            <div class="option-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="option-content">
+                                <h3>Community Forum</h3>
+                                <p>Connect with other users and share experiences in our community.</p>
+                                <a href="community.html" class="btn btn-outline">Visit Forum</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Protecting your digital communications with advanced AI technology and comprehensive security solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="report-scam.html">Report a Scam</a></li>
+                        <li><a href="community.html">Community Forum</a></li>
+                        <li><a href="#" onclick="toggleChat()">Live Chat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="learn.html">Security Education</a></li>
+                        <li><a href="fake-emails.html">Phishing Examples</a></li>
+                        <li><a href="extension.html">Browser Extension</a></li>
+                        <li><a href="download.html">Mobile Apps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: support@securemessage.ai</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav-profile.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>

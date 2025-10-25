@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Scam - SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" id="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link" id="profile-icon-link">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Profile Circle -->
+            <div class="nav-profile" id="nav-profile" style="display: none;">
+                <div class="profile-circle" id="profile-circle">
+                    <img id="nav-avatar-image" src="" alt="Profile" style="display: none;">
+                    <i class="fas fa-user" id="nav-avatar-icon"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar">
+                            <img id="dropdown-avatar-image" src="" alt="Profile" style="display: none;">
+                            <i class="fas fa-user" id="dropdown-avatar-icon"></i>
+                        </div>
+                        <div class="dropdown-info">
+                            <h4 id="dropdown-name">User Name</h4>
+                            <p id="dropdown-email">user@example.com</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="nav-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Report Scam Hero -->
+    <section class="report-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Report a Scam</h1>
+                <p>Help protect the community by reporting suspicious messages, emails, or websites. Your reports help us improve our detection systems and warn other users.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-reports">2,847</span>
+                        <span class="stat-label">Reports Submitted</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1,923</span>
+                        <span class="stat-label">Scams Blocked</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98.5%</span>
+                        <span class="stat-label">Detection Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Form Section -->
+    <section class="report-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Submit a Scam Report</h2>
+                    <p>Please provide as much detail as possible to help us analyze and prevent similar scams.</p>
+                </div>
+
+                <form id="scam-report-form" class="scam-report-form">
+                    <!-- Report Type -->
+                    <div class="form-section">
+                        <h3>What type of scam are you reporting?</h3>
+                        <div class="report-types">
+                            <label class="report-type-card">
+                                <input type="radio" name="scamType" value="email" required>
+                                <div class="card-content">
+                                    <i class="fas fa-envelope"></i>
+                                    <h4>Email Scam</h4>
+                                    <p>Phishing emails, fake notifications, or suspicious messages</p>
+                                </div>
+                            </label>
+                            
+                            <label class="report-type-card">
+                                <input type="radio" name="scamType" value="website" required>
+                                <div class="card-content">
+                                    <i class="fas fa-globe"></i>
+                                    <h4>Fake Website</h4>
+                                    <p>Fraudulent websites impersonating legitimate services</p>
+                                </div>
+                            </label>
+                            
+                            <label class="report-type-card">
+                                <input type="radio" name="scamType" value="sms" required>
+                                <div class="card-content">
+                                    <i class="fas fa-sms"></i>
+                                    <h4>SMS/Text Scam</h4>
+                                    <p>Suspicious text messages or smishing attempts</p>
+                                </div>
+                            </label>
+                            
+                            <label class="report-type-card">
+                                <input type="radio" name="scamType" value="social" required>
+                                <div class="card-content">
+                                    <i class="fas fa-users"></i>
+                                    <h4>Social Media</h4>
+                                    <p>Fake profiles, scam posts, or fraudulent ads</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Scam Details -->
+                    <div class="form-section">
+                        <h3>Scam Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="scam-title">Title/Subject *</label>
+                                <input type="text" id="scam-title" name="title" required placeholder="Brief description of the scam">
+                            </div>
+                            <div class="form-group">
+                                <label for="scam-source">Source/Sender</label>
+                                <input type="text" id="scam-source" name="source" placeholder="Email address, website URL, or phone number">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="scam-description">Detailed Description *</label>
+                            <textarea id="scam-description" name="description" required rows="4" 
+                                placeholder="Describe what happened, what the scammer claimed, and any suspicious elements you noticed..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="scam-content">Scam Content</label>
+                            <textarea id="scam-content" name="content" rows="6" 
+                                placeholder="Paste the email content, message text, or website content here (optional but helpful)..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Evidence Upload -->
+                    <div class="form-section">
+                        <h3>Evidence (Optional)</h3>
+                        <div class="upload-area" id="upload-area">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h4>Upload Screenshots or Files</h4>
+                                <p>Drag and drop files here or click to browse</p>
+                                <input type="file" id="evidence-files" name="evidence" multiple accept="image/*,.pdf,.txt">
+                            </div>
+                            <div class="upload-files" id="upload-files"></div>
+                        </div>
+                    </div>
+
+                    <!-- Impact Assessment -->
+                    <div class="form-section">
+                        <h3>Impact Assessment</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="financial-loss">Financial Loss</label>
+                                <select id="financial-loss" name="financialLoss">
+                                    <option value="">Select amount (optional)</option>
+                                    <option value="none">No financial loss</option>
+                                    <option value="under-100">Under $100</option>
+                                    <option value="100-500">$100 - $500</option>
+                                    <option value="500-1000">$500 - $1,000</option>
+                                    <option value="1000-5000">$1,000 - $5,000</option>
+                                    <option value="over-5000">Over $5,000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="urgency-level">Urgency Level</label>
+                                <select id="urgency-level" name="urgencyLevel" required>
+                                    <option value="">Select urgency</option>
+                                    <option value="low">Low - Awareness only</option>
+                                    <option value="medium">Medium - Potential threat</option>
+                                    <option value="high">High - Active threat</option>
+                                    <option value="critical">Critical - Widespread attack</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="reported-elsewhere" name="reportedElsewhere">
+                                <span class="checkmark"></span>
+                                I have reported this to other authorities (police, FTC, etc.)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-section">
+                        <h3>Contact Information (Optional)</h3>
+                        <p class="section-note">Provide your contact details if you're willing to be contacted for follow-up questions.</p>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reporter-name">Your Name</label>
+                                <input type="text" id="reporter-name" name="reporterName" placeholder="Full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="reporter-email">Your Email</label>
+                                <input type="email" id="reporter-email" name="reporterEmail" placeholder="email@example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="anonymous-report" name="anonymous">
+                                <span class="checkmark"></span>
+                                Submit this report anonymously
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Section -->
+                    <div class="form-section">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Report
+                            </button>
+                            <button type="button" class="btn btn-outline" onclick="resetForm()">
+                                <i class="fas fa-undo"></i>
+                                Reset Form
+                            </button>
+                        </div>
+                        
+                        <div class="form-note">
+                            <p><i class="fas fa-info-circle"></i> Your report will be reviewed by our security team and used to improve our detection systems. Reports are typically processed within 24-48 hours.</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Reports Section -->
+    <section class="recent-reports">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recent Community Reports</h2>
+                <p>See what scams other users have reported recently (anonymized for privacy)</p>
+            </div>
+            
+            <div class="reports-grid" id="reports-grid">
+                <!-- Reports will be loaded here -->
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn btn-outline" id="load-more-reports">
+                    <i class="fas fa-plus"></i>
+                    Load More Reports
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Reports Help Section -->
+    <section class="how-reports-help">
+        <div class="container">
+            <h2>How Your Reports Help</h2>
+            <div class="help-grid">
+                <div class="help-item">
+                    <div class="help-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Improve AI Detection</h3>
+                    <p>Your reports train our AI to recognize new scam patterns and improve detection accuracy.</p>
+                </div>
+                
+                <div class="help-item">
+                    <div class="help-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>Protect Others</h3>
+                    <p>Reported scams are added to our database to protect other users from similar threats.</p>
+                </div>
+                
+                <div class="help-item">
+                    <div class="help-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Track Trends</h3>
+                    <p>We analyze report patterns to identify emerging threats and warn the community.</p>
+                </div>
+                
+                <div class="help-item">
+                    <div class="help-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Build Community</h3>
+                    <p>Together, we create a safer online environment for everyone through shared knowledge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Protecting your digital communications with advanced AI technology and community-driven security intelligence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Report & Support</h3>
+                    <ul>
+                        <li><a href="report-scam.html">Report a Scam</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="community.html">Community Forum</a></li>
+                        <li><a href="#" onclick="toggleChat()">Live Chat Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Security Resources</h3>
+                    <ul>
+                        <li><a href="learn.html">Security Education</a></li>
+                        <li><a href="fake-emails.html">Phishing Examples</a></li>
+                        <li><a href="dashboard.html">Security Dashboard</a></li>
+                        <li><a href="extension.html">Browser Extension</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: reports@securemessage.ai</p>
+                    <p>Emergency: security@securemessage.ai</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav-profile.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/report-scam.js"></script>
+</body>
+</html>

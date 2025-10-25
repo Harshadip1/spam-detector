@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Profile Icon Styles */
+        .profile-icon-link {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem !important;
+        }
+        
+        .profile-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .profile-icon-link:hover .profile-circle {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .profile-circle i {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <!-- Login Button (shown when not authenticated) -->
+                <li class="nav-item login-btn" id="login-nav-item">
+                    <a href="login.html" class="nav-link" id="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                
+                <!-- Profile Icon (shown when authenticated) -->
+                <li class="nav-item user-menu" id="user-menu" style="display: none;">
+                    <a href="profile.html" class="nav-link profile-icon-link">
+                        <div class="profile-circle" id="profile-circle">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1>Protecting Users from Cyber Threats</h1>
+                <p>Our mission is to safeguard digital communications through advanced AI-powered spam detection and cyber security solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>At SecureMessage AI, we believe everyone deserves protection from cyber threats. Our advanced artificial intelligence analyzes patterns in digital communications to identify and prevent spam, phishing attempts, and malicious content before they reach you.</p>
+                    <p>We're committed to making the digital world safer, one message at a time.</p>
+                </div>
+                <div class="mission-image">
+                    <div class="mission-card">
+                        <i class="fas fa-shield-virus"></i>
+                        <h3>AI-Powered Protection</h3>
+                        <p>Advanced machine learning algorithms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Company Founded</h3>
+                        <p>SecureMessage AI was established with a vision to combat cyber threats using artificial intelligence.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>First AI Model Released</h3>
+                        <p>Launched our first spam detection algorithm with 95% accuracy rate, protecting thousands of users.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Advanced Protection Suite</h3>
+                        <p>Introduced real-time threat detection with 99.9% accuracy, now protecting over 50,000 users worldwide.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Future</div>
+                    <div class="timeline-content">
+                        <h3>Global Expansion</h3>
+                        <p>Planning to expand our services globally and introduce new AI-powered security features.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Impact by Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="stat-number">50,000+</h3>
+                    <p>Protected Users</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="stat-number">1M+</h3>
+                    <p>Threats Blocked</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="stat-number">25+</h3>
+                    <p>Countries Served</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="stat-number">24/7</h3>
+                    <p>Real-time Protection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Dr. Sarah Johnson</h3>
+                    <p class="member-role">CEO & AI Research Lead</p>
+                    <p class="member-bio">Former Google AI researcher with 10+ years in machine learning and cybersecurity.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p class="member-role">CTO & Security Architect</p>
+                    <p class="member-bio">Cybersecurity expert with experience at Microsoft and IBM, specializing in threat detection.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Emily Rodriguez</h3>
+                    <p class="member-role">Lead Data Scientist</p>
+                    <p class="member-bio">PhD in Computer Science, expert in natural language processing and pattern recognition.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>We never store or share your personal messages. All analysis is done locally and securely.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Continuously improving our AI models to stay ahead of emerging cyber threats.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>User-Centric</h3>
+                    <p>Every feature we build is designed with our users' safety and experience in mind.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Accessibility</h3>
+                    <p>Making cybersecurity protection available to everyone, regardless of technical expertise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Protect Yourself?</h2>
+                <p>Join thousands of users who trust SecureMessage AI to keep their communications safe.</p>
+                <div class="cta-buttons">
+                    <a href="index.html" class="btn btn-primary">Try Our Detector</a>
+                    <a href="download.html" class="btn btn-secondary">Download App</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Protecting users from cyber threats with advanced AI technology.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="download.html">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@securemessage.ai</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

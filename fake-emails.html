@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Email Examples - Learn to Identify Phishing | SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" id="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link" id="profile-icon-link">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Profile Circle -->
+            <div class="nav-profile" id="nav-profile" style="display: none;">
+                <div class="profile-circle" id="profile-circle">
+                    <img id="nav-avatar-image" src="" alt="Profile" style="display: none;">
+                    <i class="fas fa-user" id="nav-avatar-icon"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar">
+                            <img id="dropdown-avatar-image" src="" alt="Profile" style="display: none;">
+                            <i class="fas fa-user" id="dropdown-avatar-icon"></i>
+                        </div>
+                        <div class="dropdown-info">
+                            <h4 id="dropdown-name">User Name</h4>
+                            <p id="dropdown-email">user@example.com</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="nav-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fake Emails Hero -->
+    <section class="fake-emails-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Fake Email Examples</h1>
+                <p>Learn to identify phishing emails with real-world examples. Each email shows common red flags and tactics used by cybercriminals.</p>
+                <div class="warning-notice">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Educational Purpose Only - These are examples of malicious emails for learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Categories -->
+    <section class="email-categories">
+        <div class="container">
+            <h2>Email Categories</h2>
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Examples</button>
+                <button class="category-tab" data-category="banking">Banking Scams</button>
+                <button class="category-tab" data-category="tech">Tech Support</button>
+                <button class="category-tab" data-category="social">Social Media</button>
+                <button class="category-tab" data-category="shopping">Shopping</button>
+                <button class="category-tab" data-category="urgent">Urgent Scams</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fake Emails Grid -->
+    <section class="fake-emails-section">
+        <div class="container">
+            <div class="emails-grid" id="emails-grid">
+                <!-- Email examples will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Analysis Modal -->
+    <div class="modal" id="email-modal">
+        <div class="modal-content email-modal-content">
+            <div class="modal-header">
+                <h2>Email Analysis</h2>
+                <button class="close-btn" onclick="closeEmailModal()">&times;</button>
+            </div>
+            <div class="email-analysis">
+                <div class="email-display" id="email-display">
+                    <!-- Email content will be displayed here -->
+                </div>
+                <div class="analysis-panel" id="analysis-panel">
+                    <!-- Analysis content will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Red Flags Guide -->
+    <section class="red-flags-guide">
+        <div class="container">
+            <h2>Common Red Flags in Phishing Emails</h2>
+            <div class="red-flags-grid">
+                <div class="red-flag-item">
+                    <div class="flag-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h3>Urgent Language</h3>
+                    <p>Phrases like "Act now!" or "Your account will be closed" create false urgency</p>
+                </div>
+                <div class="red-flag-item">
+                    <div class="flag-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Poor Grammar</h3>
+                    <p>Legitimate companies proofread their emails. Look for spelling and grammar errors</p>
+                </div>
+                <div class="red-flag-item">
+                    <div class="flag-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Suspicious Links</h3>
+                    <p>Hover over links to see if they lead to legitimate websites</p>
+                </div>
+                <div class="red-flag-item">
+                    <div class="flag-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Generic Greetings</h3>
+                    <p>"Dear Customer" instead of your actual name is often a red flag</p>
+                </div>
+                <div class="red-flag-item">
+                    <div class="flag-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Requests for Info</h3>
+                    <p>Legitimate companies never ask for passwords or sensitive info via email</p>
+                </div>
+                <div class="red-flag-item">
+                    <div class="flag-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Unexpected Emails</h3>
+                    <p>Be suspicious of emails from companies you don't have accounts with</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <div class="quiz-card">
+                <h2>Test Your Knowledge</h2>
+                <p>Can you spot the phishing emails? Take our interactive quiz to test your skills.</p>
+                <button class="btn btn-primary" onclick="startPhishingQuiz()">
+                    <i class="fas fa-brain"></i>
+                    Start Phishing Quiz
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Protecting your digital communications with advanced AI technology and comprehensive security education.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Security Education</h3>
+                    <ul>
+                        <li><a href="learn.html">Security Articles</a></li>
+                        <li><a href="fake-emails.html">Phishing Examples</a></li>
+                        <li><a href="learn.html#quiz">Security Quiz</a></li>
+                        <li><a href="learn.html#checklist">Security Checklist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><a href="index.html">Spam Detector</a></li>
+                        <li><a href="dashboard.html">Security Dashboard</a></li>
+                        <li><a href="profile.html">Profile Management</a></li>
+                        <li><a href="premium.html">Premium Features</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <p>Email: support@securemessage.ai</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav-profile.js"></script>
+    <script src="js/fake-emails.js"></script>
+</body>
+</html>

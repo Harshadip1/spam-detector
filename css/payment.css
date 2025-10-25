@@ -1,0 +1,123 @@
+/* ===== PAYMENT PAGE OVERRIDES (Spam Theme + Center Alignment) ===== */
+
+/* Use global theme tokens */
+.payment-container {
+  background: var(--hero-gradient) !important;
+  padding-top: 120px; /* avoid navbar overlap */
+  scroll-margin-top: 100px;
+}
+
+/* Wrapper & form card */
+.payment-wrapper { align-items: flex-start; }
+.payment-form {
+  background: var(--card-gradient) !important;
+  border: 1px solid var(--border-light) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-3d) !important;
+}
+.payment-form .section-title {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* General typography */
+.section-title,
+.section-subtitle { text-align: center !important; }
+
+/* Plan summary alignment */
+.summary-header { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.plan-details { text-align: center; }
+.plan-name { color: var(--primary-color) !important; }
+.plan-description { color: var(--text-secondary) !important; }
+.plan-pricing { justify-content: center; }
+
+.plan-summary {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: var(--shadow-inset) !important;
+}
+.total-display {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+/* Billing options */
+.billing-options { justify-content: center; }
+.billing-toggle label { color: var(--text-primary) !important; }
+.billing-toggle input[type="radio"]:checked + label {
+  background: var(--primary-gradient) !important;
+  border-color: var(--primary-color) !important;
+}
+.discount { color: var(--success-color) !important; }
+
+/* Totals */
+.total-display { text-align: center; }
+.breakdown-row { justify-content: center; gap: var(--space-lg); }
+.breakdown-row.total span:last-child { color: var(--primary-color) !important; }
+.total-row { justify-content: center; gap: var(--space-lg); }
+.total-row.final { color: var(--text-primary) !important; }
+
+/* Payment methods */
+.payment-methods { justify-content: center; }
+.payment-method { color: var(--text-primary) !important; border-color: var(--border-light) !important; background: rgba(255,255,255,0.06) !important; }
+.payment-method i { color: var(--primary-color) !important; }
+.payment-method.active { border-color: var(--primary-color) !important; background: rgba(0,212,255,0.10) !important; box-shadow: var(--shadow-glow) !important; }
+
+/* UPI section */
+.upi-container { align-items: stretch; }
+.qr-section { justify-content: center; }
+.qr-section { background: rgba(255,255,255,0.04) !important; border: 1px solid var(--border-light) !important; }
+.qr-code-wrapper { border: 1px solid var(--border-light) !important; background: var(--bg-card) !important; }
+.qr-info h4, .qr-info p { text-align: center; color: var(--text-secondary) !important; }
+.upi-apps { justify-content: center; }
+.upi-app { color: var(--text-primary) !important; background: var(--bg-secondary) !important; border: 1px solid var(--border-light) !important; }
+
+/* Manual UPI */
+.upi-manual { background: rgba(255,255,255,0.04) !important; border: 1px solid var(--border-light) !important; }
+.upi-manual h4 { text-align: center; color: var(--text-primary) !important; }
+.upi-note { text-align: center; color: var(--text-secondary) !important; }
+
+/* Bank grid */
+.bank-grid { justify-content: center; }
+.bank-option { text-align: center; border-color: var(--border-light) !important; background: var(--bg-card) !important; }
+.bank-option.selected { border-color: var(--primary-color) !important; background: rgba(0,212,255,0.06) !important; }
+
+/* Buttons */
+.pay-button { background: var(--primary-gradient) !important; box-shadow: var(--shadow-glow) !important; border: 1px solid var(--border-light) !important; }
+.back-link { text-align: center; }
+
+/* Security info */
+.security-info { background: var(--bg-secondary) !important; border: 1px solid var(--border-light) !important; }
+.security-info span { color: var(--text-secondary) !important; }
+
+/* Form */
+.form-group label { color: var(--text-primary) !important; }
+.form-input {
+  background: var(--bg-secondary) !important;
+  border: 2px solid var(--border-light) !important;
+  color: var(--text-primary) !important;
+}
+.form-input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15) !important;
+  background: var(--bg-primary) !important;
+}
+
+/* Tables/rows inside totals if any */
+.total-breakdown span { color: var(--text-secondary) !important; }
+
+/* Completion */
+.payment-completion { text-align: center; }
+.completion-message { color: var(--primary-color) !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .payment-container { padding-top: 100px; }
+}

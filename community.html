@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum - SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/community.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Profile Icon Styles */
+        .profile-icon-link {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem !important;
+        }
+        
+        .profile-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .profile-icon-link:hover .profile-circle {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .profile-circle i {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <!-- Login Button (shown when not authenticated) -->
+                <li class="nav-item login-btn" id="login-nav-item">
+                    <a href="login.html" class="nav-link" id="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                
+                <!-- Profile Icon (shown when authenticated) -->
+                <li class="nav-item user-menu" id="user-menu" style="display: none;">
+                    <a href="profile.html" class="nav-link profile-icon-link">
+                        <div class="profile-circle" id="profile-circle">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Community Hero -->
+    <section class="community-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="coming-soon-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span>Coming Soon</span>
+                </div>
+                <h1>SecureMessage AI Community Forum</h1>
+                <p>Connect with fellow users, share experiences, and learn from cybersecurity experts in our upcoming community forum.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Future Members</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Community Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Expert</span>
+                        <span class="stat-label">Moderation</span>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="btn btn-primary" id="join-waitlist">
+                        <i class="fas fa-bell"></i>
+                        Join Waitlist
+                    </button>
+                    <button class="btn btn-outline" onclick="toggleChat()">
+                        <i class="fas fa-comments"></i>
+                        Chat Support (Available Now)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Preview -->
+    <section class="forum-preview">
+        <div class="container">
+            <div class="preview-header">
+                <h2>What to Expect</h2>
+                <p>Get a sneak peek at what our community forum will offer</p>
+            </div>
+            
+            <div class="forum-mockup">
+                <div class="forum-header">
+                    <div class="forum-nav">
+                        <span class="nav-item active">Latest</span>
+                        <span class="nav-item">Categories</span>
+                        <span class="nav-item">Top</span>
+                        <span class="nav-item">Users</span>
+                    </div>
+                    <div class="forum-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search discussions..." disabled>
+                    </div>
+                </div>
+                
+                <div class="forum-content">
+                    <div class="forum-categories">
+                        <div class="category-item">
+                            <div class="category-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Spam & Phishing Reports</h3>
+                                <p>Share and discuss suspicious messages</p>
+                                <span class="topic-count">234 topics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-item">
+                            <div class="category-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Security Education</h3>
+                                <p>Learn and teach cybersecurity best practices</p>
+                                <span class="topic-count">156 topics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-item">
+                            <div class="category-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Technical Support</h3>
+                                <p>Get help with SecureMessage AI features</p>
+                                <span class="topic-count">89 topics</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-topics">
+                        <h3>Recent Discussions (Preview)</h3>
+                        <div class="topic-list">
+                            <div class="topic-item">
+                                <div class="topic-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="topic-content">
+                                    <h4>New phishing campaign targeting online banking</h4>
+                                    <p>Has anyone else seen emails claiming to be from major banks asking to verify account information?</p>
+                                    <div class="topic-meta">
+                                        <span class="author">SecurityExpert92</span>
+                                        <span class="replies">12 replies</span>
+                                        <span class="time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        <span>247</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        <span>18</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="topic-item">
+                                <div class="topic-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="topic-content">
+                                    <h4>Best practices for password management</h4>
+                                    <p>What password managers do you recommend? Looking for something secure and user-friendly.</p>
+                                    <div class="topic-meta">
+                                        <span class="author">CyberNewbie</span>
+                                        <span class="replies">8 replies</span>
+                                        <span class="time">4 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        <span>156</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        <span>24</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="topic-item">
+                                <div class="topic-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="topic-content">
+                                    <h4>Mobile app feature request: Bulk scanning</h4>
+                                    <p>Would love to see bulk email scanning in the mobile app. Anyone else interested in this feature?</p>
+                                    <div class="topic-meta">
+                                        <span class="author">MobileUser2024</span>
+                                        <span class="replies">15 replies</span>
+                                        <span class="time">6 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-eye"></i>
+                                        <span>203</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        <span>31</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forum Features -->
+    <section class="forum-features">
+        <div class="container">
+            <h2>Community Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Community</h3>
+                    <p>Connect with cybersecurity professionals, researchers, and experienced users who share their knowledge.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Scam Sharing</h3>
+                    <p>Share suspicious messages and websites with the community to help others avoid similar threats.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Learning Resources</h3>
+                    <p>Access tutorials, guides, and educational content created by community members and experts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Reputation System</h3>
+                    <p>Earn points and badges for helpful contributions, building your reputation in the community.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>Verified Experts</h3>
+                    <p>Get answers from verified cybersecurity professionals and SecureMessage AI team members.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Real-time Updates</h3>
+                    <p>Stay informed about the latest threats and security trends through community discussions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Guidelines Preview -->
+    <section class="community-guidelines">
+        <div class="container">
+            <div class="guidelines-content">
+                <h2>Community Guidelines</h2>
+                <p>Our forum will be a safe, respectful space for learning and sharing cybersecurity knowledge.</p>
+                
+                <div class="guidelines-grid">
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Be Respectful</h3>
+                        <p>Treat all community members with respect and courtesy, regardless of their experience level.</p>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Share Responsibly</h3>
+                        <p>When sharing suspicious content, ensure personal information is removed to protect privacy.</p>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Verify Information</h3>
+                        <p>Double-check facts before sharing and cite reliable sources when providing security advice.</p>
+                    </div>
+                    
+                    <div class="guideline-item">
+                        <div class="guideline-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h3>No Malicious Content</h3>
+                        <p>Never share actual malware, working phishing links, or content that could harm others.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Signup -->
+    <section class="waitlist-signup">
+        <div class="container">
+            <div class="signup-card">
+                <div class="signup-content">
+                    <h2>Join the Community Waitlist</h2>
+                    <p>Be among the first to access our community forum when it launches. Get exclusive early access and help shape the community.</p>
+                    
+                    <form class="waitlist-form" id="waitlist-form">
+                        <div class="form-group">
+                            <input type="email" id="waitlist-email" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-bell"></i>
+                                Join Waitlist
+                            </button>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="beta-tester">
+                                <span class="checkmark"></span>
+                                I'm interested in beta testing the forum
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="expert-contributor">
+                                <span class="checkmark"></span>
+                                I'd like to contribute as a cybersecurity expert
+                            </label>
+                        </div>
+                    </form>
+                    
+                    <div class="waitlist-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-star"></i>
+                            <span>Early access to forum features</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-crown"></i>
+                            <span>Founding member badge</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <span>Direct input on community features</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="signup-stats">
+                    <div class="stat">
+                        <span class="number" id="waitlist-count">1,247</span>
+                        <span class="label">People Waiting</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">Q2 2024</span>
+                        <span class="label">Expected Launch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Support -->
+    <section class="alternative-support">
+        <div class="container">
+            <h2>Need Help Right Now?</h2>
+            <p>While we're building our community forum, here are other ways to get support and connect:</p>
+            
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat Support</h3>
+                    <p>Get instant help from our AI assistant or human support agents.</p>
+                    <button class="btn btn-primary" onclick="toggleChat()">Start Chat</button>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>FAQ Section</h3>
+                    <p>Find answers to common questions about spam detection and security.</p>
+                    <a href="faq.html" class="btn btn-outline">Browse FAQ</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Report Scams</h3>
+                    <p>Help the community by reporting suspicious messages and websites.</p>
+                    <a href="report-scam.html" class="btn btn-outline">Report Now</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Security Education</h3>
+                    <p>Learn about cybersecurity through our comprehensive educational resources.</p>
+                    <a href="learn.html" class="btn btn-outline">Start Learning</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Building a safer digital world through community-driven cybersecurity intelligence and education.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="community.html">Forum (Coming Soon)</a></li>
+                        <li><a href="report-scam.html">Report Scams</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#" onclick="toggleChat()">Live Chat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="learn.html">Security Education</a></li>
+                        <li><a href="fake-emails.html">Phishing Examples</a></li>
+                        <li><a href="extension.html">Browser Extension</a></li>
+                        <li><a href="download.html">Mobile Apps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>Email: community@securemessage.ai</p>
+                    <p>Support: support@securemessage.ai</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav-profile.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/community.js"></script>
+</body>
+</html>

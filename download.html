@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download App - SecureMessage AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/download.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>SecureMessage AI</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="download.html" class="nav-link active">
+                        <i class="fas fa-download"></i>
+                        <span>Download</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="premium.html" class="nav-link">
+                        <i class="fas fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link" id="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link" id="profile-icon-link">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Profile Circle -->
+            <div class="nav-profile" id="nav-profile" style="display: none;">
+                <div class="profile-circle" id="profile-circle">
+                    <img id="nav-avatar-image" src="" alt="Profile" style="display: none;">
+                    <i class="fas fa-user" id="nav-avatar-icon"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar">
+                            <img id="dropdown-avatar-image" src="" alt="Profile" style="display: none;">
+                            <i class="fas fa-user" id="dropdown-avatar-icon"></i>
+                        </div>
+                        <div class="dropdown-info">
+                            <h4 id="dropdown-name">User Name</h4>
+                            <p id="dropdown-email">user@example.com</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a href="dashboard.html" class="dropdown-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="nav-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Download Hero Section -->
+    <section class="download-hero">
+        <div class="container">
+            <div class="download-hero-content">
+                <div class="hero-text">
+                    <h1>Download SecureMessage AI</h1>
+                    <p>Get advanced spam protection on all your devices. Available for mobile, desktop, and web browsers.</p>
+                    <div class="download-stats">
+                        <div class="stat">
+                            <span class="stat-number">1M+</span>
+                            <span class="stat-label">Downloads</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4.8★</span>
+                            <span class="stat-label">App Store Rating</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Detection Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-qr">
+                    <div class="qr-section">
+                        <h3>Quick Download</h3>
+                        <p>Scan QR code with your phone</p>
+                        <div class="qr-codes">
+                            <div class="qr-code-item">
+                                <div class="qr-code" id="ios-qr">
+                                    <canvas width="120" height="120"></canvas>
+                                </div>
+                                <span>iOS App</span>
+                            </div>
+                            <div class="qr-code-item">
+                                <div class="qr-code" id="android-qr">
+                                    <canvas width="120" height="120"></canvas>
+                                </div>
+                                <span>Android App</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Options Section -->
+    <section class="download-options">
+        <div class="container">
+            <h2 class="section-title">Choose Your Platform</h2>
+            <div class="platform-grid">
+                <!-- Mobile Apps -->
+                <div class="platform-category">
+                    <h3>Mobile Apps</h3>
+                    <div class="download-cards">
+                        <div class="download-card">
+                            <div class="platform-icon">
+                                <i class="fab fa-apple"></i>
+                            </div>
+                            <div class="platform-info">
+                                <h4>iOS App</h4>
+                                <p>iPhone & iPad</p>
+                                <div class="platform-features">
+                                    <span>Real-time scanning</span>
+                                    <span>Offline protection</span>
+                                    <span>Widget support</span>
+                                </div>
+                                <div class="platform-requirements">
+                                    <small>Requires iOS 14.0 or later</small>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn ios-btn">
+                                <i class="fab fa-apple"></i>
+                                <div>
+                                    <small>Download on the</small>
+                                    <strong>App Store</strong>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="download-card">
+                            <div class="platform-icon">
+                                <i class="fab fa-android"></i>
+                            </div>
+                            <div class="platform-info">
+                                <h4>Android App</h4>
+                                <p>Phones & Tablets</p>
+                                <div class="platform-features">
+                                    <span>SMS protection</span>
+                                    <span>Email integration</span>
+                                    <span>Auto-block spam</span>
+                                </div>
+                                <div class="platform-requirements">
+                                    <small>Requires Android 8.0 or later</small>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn android-btn">
+                                <i class="fab fa-google-play"></i>
+                                <div>
+                                    <small>Get it on</small>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Apps -->
+                <div class="platform-category">
+                    <h3>Desktop Applications</h3>
+                    <div class="download-cards">
+                        <div class="download-card">
+                            <div class="platform-icon">
+                                <i class="fab fa-windows"></i>
+                            </div>
+                            <div class="platform-info">
+                                <h4>Windows App</h4>
+                                <p>Desktop & Laptop</p>
+                                <div class="platform-features">
+                                    <span>Email client integration</span>
+                                    <span>System tray monitoring</span>
+                                    <span>Batch scanning</span>
+                                </div>
+                                <div class="platform-requirements">
+                                    <small>Windows 10 or later</small>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn windows-btn">
+                                <i class="fas fa-download"></i>
+                                <div>
+                                    <small>Download for</small>
+                                    <strong>Windows</strong>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="download-card">
+                            <div class="platform-icon">
+                                <i class="fab fa-apple"></i>
+                            </div>
+                            <div class="platform-info">
+                                <h4>macOS App</h4>
+                                <p>Mac computers</p>
+                                <div class="platform-features">
+                                    <span>Mail.app integration</span>
+                                    <span>Menu bar access</span>
+                                    <span>Spotlight search</span>
+                                </div>
+                                <div class="platform-requirements">
+                                    <small>macOS 11.0 or later</small>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn mac-btn">
+                                <i class="fab fa-apple"></i>
+                                <div>
+                                    <small>Download for</small>
+                                    <strong>macOS</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Browser Extensions -->
+                <div class="platform-category">
+                    <h3>Browser Extensions</h3>
+                    <div class="download-cards">
+                        <div class="download-card">
+                            <div class="platform-icon">
+                                <i class="fab fa-chrome"></i>
+                            </div>
+                            <div class="platform-info">
+                                <h4>Chrome Extension</h4>
+                                <p>Google Chrome</p>
+                                <div class="platform-features">
+                                    <span>Gmail integration</span>
+                                    <span>Web email scanning</span>
+                                    <span>One-click analysis</span>
+                                </div>
+                                <div class="platform-requirements">
+                                    <small>Chrome 88 or later</small>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn chrome-btn">
+                                <i class="fab fa-chrome"></i>
+                                <div>
+                                    <small>Add to</small>
+                                    <strong>Chrome</strong>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="download-card">
+                            <div class="platform-icon">
+                                <i class="fab fa-firefox"></i>
+                            </div>
+                            <div class="platform-info">
+                                <h4>Firefox Add-on</h4>
+                                <p>Mozilla Firefox</p>
+                                <div class="platform-features">
+                                    <span>Privacy focused</span>
+                                    <span>Webmail support</span>
+                                    <span>Lightweight</span>
+                                </div>
+                                <div class="platform-requirements">
+                                    <small>Firefox 78 or later</small>
+                                </div>
+                            </div>
+                            <a href="#" class="download-btn firefox-btn">
+                                <i class="fab fa-firefox"></i>
+                                <div>
+                                    <small>Add to</small>
+                                    <strong>Firefox</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Comparison -->
+    <section class="features-comparison">
+        <div class="container">
+            <h2 class="section-title">Feature Comparison</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Web App</th>
+                            <th>Mobile App</th>
+                            <th>Desktop App</th>
+                            <th>Browser Extension</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Spam Detection</td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Real-time Scanning</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Offline Mode</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Email Integration</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Batch Processing</td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Custom Rules</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section class="installation-guide">
+        <div class="container">
+            <h2 class="section-title">Quick Installation Guide</h2>
+            <div class="guide-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="mobile">Mobile</button>
+                    <button class="tab-btn" data-tab="desktop">Desktop</button>
+                    <button class="tab-btn" data-tab="browser">Browser</button>
+                </div>
+                
+                <div class="tab-content active" id="mobile-guide">
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Download the App</h4>
+                                <p>Click the download button for your platform (iOS or Android)</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Install & Open</h4>
+                                <p>Install the app from your device's app store and open it</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Grant Permissions</h4>
+                                <p>Allow the app to access your messages for real-time protection</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Start Protection</h4>
+                                <p>Your device is now protected! The app will automatically scan incoming messages</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="desktop-guide">
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Download Installer</h4>
+                                <p>Download the installer file for your operating system</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Run Installation</h4>
+                                <p>Double-click the installer and follow the setup wizard</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Configure Email Client</h4>
+                                <p>Connect your email client for automatic spam filtering</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Enjoy Protection</h4>
+                                <p>The app will run in the background, protecting all your communications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="browser-guide">
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Visit Extension Store</h4>
+                                <p>Click the download button to go to your browser's extension store</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Add Extension</h4>
+                                <p>Click "Add to Browser" and confirm the installation</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Pin Extension</h4>
+                                <p>Pin the extension to your toolbar for easy access</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Start Scanning</h4>
+                                <p>The extension will automatically scan emails in your webmail clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section class="system-requirements">
+        <div class="container">
+            <h2 class="section-title">System Requirements</h2>
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <h3><i class="fab fa-apple"></i> iOS</h3>
+                    <ul>
+                        <li>iOS 14.0 or later</li>
+                        <li>iPhone 6s or newer</li>
+                        <li>iPad (5th generation) or newer</li>
+                        <li>50 MB free storage</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3><i class="fab fa-android"></i> Android</h3>
+                    <ul>
+                        <li>Android 8.0 (API level 26) or higher</li>
+                        <li>2 GB RAM minimum</li>
+                        <li>100 MB free storage</li>
+                        <li>Internet connection required</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3><i class="fab fa-windows"></i> Windows</h3>
+                    <ul>
+                        <li>Windows 10 or Windows 11</li>
+                        <li>4 GB RAM minimum</li>
+                        <li>200 MB free disk space</li>
+                        <li>.NET Framework 4.7.2</li>
+                    </ul>
+                </div>
+                <div class="requirement-card">
+                    <h3><i class="fab fa-apple"></i> macOS</h3>
+                    <ul>
+                        <li>macOS 11.0 (Big Sur) or later</li>
+                        <li>Intel or Apple Silicon processor</li>
+                        <li>4 GB RAM minimum</li>
+                        <li>150 MB free disk space</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SecureMessage AI</span>
+                    </div>
+                    <p>Protecting users from cyber threats with advanced AI technology.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="download.html">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@securemessage.ai</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SecureMessage AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/globalErrorFix.js"></script>
+    <script src="js/missingFilesFix.js"></script>
+    <script src="js/pageValidator.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/errorFix.js"></script>
+    <script src="js/profileClickHandler.js"></script>
+    <script src="js/userInterface.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav-profile.js"></script>
+    <script src="js/download.js"></script>
+</body>
+</html>
